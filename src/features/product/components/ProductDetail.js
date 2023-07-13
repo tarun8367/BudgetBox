@@ -57,12 +57,10 @@ export default function ProductDetail() {
     if (items.findIndex((item) => item.product.id === product.id) < 0) {
       console.log({ items, product });
       const newItem = {
-       
         product: product.id,
         quantity: 1,
         user: user.id,
       };
-      
       dispatch(addToCartAsync(newItem));
       // TODO: it will be based on server response of backend
       alert.error('Item added to Cart');

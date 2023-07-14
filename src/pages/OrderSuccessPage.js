@@ -8,14 +8,13 @@ import { resetOrder } from "../features/order/orderSlice";
 function OrderSuccessPage() {
    const params = useParams() 
    const dispatch = useDispatch();
-   const user = useSelector(selectLoggedInUser);
    
    useEffect(()=>{
     // reset cart
-    dispatch(resetCartAsync(user.id))
+    dispatch(resetCartAsync())
     // reset currentOrder
     dispatch(resetOrder())
-   },[dispatch,user])
+   },[dispatch])
    
   return (
     <>
@@ -27,7 +26,7 @@ function OrderSuccessPage() {
           Order Number #{params?.id}
         </h1>
         <p className="mt-6 text-base leading-7 text-gray-600">
-          You can check your order in My Account > My Orders
+          You can check your order in My Account --/ My Orders
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
